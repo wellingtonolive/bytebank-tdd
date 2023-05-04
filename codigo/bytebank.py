@@ -25,9 +25,19 @@ class Funcionario:
         nome_splited = nome_completo.split(' ')
         return nome_splited[-1]
 
+    def _is_socio(self):
+        sobrenomes = ["Braganca", "Paulista", "Lima"]
+        return self._salario >= 100000 and (self.sobrenome() in sobrenomes)
+
+    def decrescimo_salario(self):
+        if self._is_socio():
+            decrescimo = self._salario * 0.1
+            self._salario = self._salario - decrescimo
+
     def calcular_bonus(self):
         valor = self._salario * 0.1
         if valor > 1000:
+            raise Exception("Salário muito alto para receber um bônus")
             valor = 0
         return valor
 
