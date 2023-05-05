@@ -58,4 +58,12 @@ class TestClass:
 
             assert resultado
 
+    def test_retorno_str(self):
+        nome, data_nas, salario = "Well", "11/03/1999", 1500
+        esperado = 'Funcionario(Well, 11/03/1999, 1500)'
 
+        funcionario_teste = Funcionario(nome, data_nas, salario)
+
+        resultado = funcionario_teste.__str__()
+
+        assert resultado == esperado
